@@ -6,4 +6,4 @@ CPTS 322 Project
 * Daniel Lichtchouk
 * Zack Barnett - 11621044
 * Connor Easton - 11557902
-* Erik 
+* Erik Nimb - 11477698
