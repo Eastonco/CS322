@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\employeedatasController.cs" />
     <Compile Include="Controllers\userdatasController.cs" />
+    <Compile Include="Controllers\userlogsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -153,6 +154,24 @@
     </Compile>
     <Compile Include="Models\userdata.cs">
       <DependentUpon>UserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\userLog.cs">
+      <DependentUpon>UserLogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserLogModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserLogModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserLogModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserLogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserLogModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserLogModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\UserModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -190,6 +209,16 @@
       <DependentUpon>EmployeeModel.edmx</DependentUpon>
       <LastGenOutput>EmployeeModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\UserLogModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserLogModel.edmx</DependentUpon>
+      <LastGenOutput>UserLogModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\UserLogModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserLogModel.edmx</DependentUpon>
+      <LastGenOutput>UserLogModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\UserModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>UserModel.edmx</DependentUpon>
@@ -216,6 +245,13 @@
     <Content Include="Models\EmployeeModel.edmx.diagram">
       <DependentUpon>EmployeeModel.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\UserLogModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UserLogModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\UserLogModel.edmx.diagram">
+      <DependentUpon>UserLogModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -228,6 +264,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <None Include="Views\employeedatas\Create.cshtml" />
+    <None Include="Views\userlogs\UserLog.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
