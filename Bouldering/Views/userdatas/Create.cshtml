@@ -1,35 +1,63 @@
 ﻿@model Bouldering.Models.userdata
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create New Climber";
 }
 
     <style>
+        #navbar {
+          display: grid;
+          min-height: 100px;
+          grid-auto-flow: column;
+          background-color: #fcfcfc;
+          padding-right: 2%;
+          padding-left: 2%;
+        }
+
+        #logo {
+          display: grid;
+          justify-content: start;
+          align-content: center;
+          font-size: 30px;
+          font-weight: 700;
+          color: black;
+          text-transform: uppercase;
+        }
+
+        #links {
+          display: grid;
+          justify-content: right;
+          align-content: center;
+          grid-auto-flow: column;
+          grid-gap: 1.5em;
+        }
+
+        #links a {
+          text-decoration: none;
+          color: black;
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+
+        #links a:hover {
+          color: #0474bc;
+        }
+
+
         html {
             background-image: url("https://cdn.pixabay.com/photo/2014/07/01/12/35/mountains-381231_1280.jpg");
             background-repeat:no-repeat;
             background-size:cover;
-            font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+            margin:0;
+            font-family: "Open Sans", sans-serif;
         }
 
         #Title {
             text-align: center;
             font-size:35px;
-            color:green;
-        }
-
-        .nav {
-            width: 100%;
-            height: 13%;
-            background-color: rgba(255,255,255,0.5);
-        }
-
-        #Nav_Container, #Selection {
-            display:inline-block;
-        }
-
-        #Selection {
-            float:right;
+            color:black;
+            text-transform: uppercase;
         }
 
          #btn1, #btn2 {
@@ -62,50 +90,62 @@
         input[type="submit"] {
             height: 50px;
             text-align: center;
-            font-size:20px;
-            width: 120px;
-            border-radius:50px;
-            border: 2px solid green;
-            color: green;
-            letter-spacing:1px;
-            align-content:center;
-            background-color:white;
-            margin: 0 auto;
-            display: block;
-            cursor:pointer;
-        }
-
-         input[type='button']{
-            height: 30px;
-            text-align: center;
-            font-size: 10px;
-            width: 120px;
-            border-radius: 50px;
-            border: 2px solid blue;
-            color: green;
-            letter-spacing: 1px;
+            font-size: 22px;
+            width: 150px;
+            border:none;
             align-content: center;
             background-color: white;
             margin: 0 auto;
             display: block;
             cursor: pointer;
+            color: black;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+         input[type='button']{
+            height: 30px;
+            text-align: center;
+            font-size: 15px;
+            width: 120px;
+            border:none;
+            align-content: center;
+            background-color: white;
+            margin: 0 auto;
+            display: block;
+            cursor: pointer;
+            color: black;
+            text-transform: uppercase;
+            font-weight: bold;
          }
 
         input[type="submit"]:hover {
-            background-color:green;
+            color: #0474bc;
+        }
+
+        input[type="button"]:hover {
+            color: #0474bc;
         }
 
     </style>
 
-    <div class="nav">
-        <div id="Nav_Container">
-            <h1>Mountain Top Bouldering Company</h1>
-        </div>
-        <div id="Selection">
-            <input type="button" id="btn1" value="Climber" onclick="location.href='@Url.Action("Create", "userdatas")'" />
-            <input type="button" id="btn2"  value="Employee" onclick="location.href='@Url.Action("Create", "employeedatas")'" />
-        </div>
-    </div>
+    <header>
+        <nav>
+            <div id="navbar">
+                <div id="logo" class="reverse">
+
+                    <div class="logo">Bouldering Company</div>
+
+                </div>
+                <div id="links">
+                    <a href="">Home</a>
+                    <a href="@Url.Action("Create", "userLogs")">Climber</a>
+                    <a href="@Url.Action("Employee_Authenticate", "employeedatas")">Employee</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
 
 
 @using (Html.BeginForm())
@@ -156,12 +196,15 @@
             <br />
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Create" class="btn btn-default"/>
                 </div>
             </div>
             <br />
-            <input type="button" value="Sign In" onclick="location.href='@Url.Action("UserLog", "userlogs")'" />
+            <input type="button" value="Sign In" onclick="location.href = '@Url.Action("Create", "userlogs")'" />
         </div>
     </div>
 }
 
+<script>
+    window.onload = $("input.form-control:text").val("");
+</script>

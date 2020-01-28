@@ -1,8 +1,8 @@
-﻿@model Bouldering.Models.employeedata
+﻿@model Bouldering.Models.userLog
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 @{
-    ViewBag.Title = "Create New Employee";
+    ViewBag.Title = "User Sign In";
 }
 
 <style>
@@ -147,6 +147,7 @@
 </header>
 
 
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -154,51 +155,36 @@
     <div class="form-horizontal">
         <div class="container">
 
-            <h2 id="Title">New Employee</h2>
+            <h2 id="Title">Welcome Back!</h2>
             <br />
             <br />
             <br />
             <br />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
+                @*@Html.LabelFor(model => model.userID, htmlAttributes: new { @class = "control-label col-md-2" })*@
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.employeeID, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee ID" } })
-                    @Html.ValidationMessageFor(model => model.employeeID, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.userID, new { htmlAttributes = new { @class = "form-control", placeholder = "User ID" } })
+                    @Html.ValidationMessageFor(model => model.userID, "", new { @class = "text-danger" })
                 </div>
             </div>
             <br />
             <br />
             <div class="form-group">
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })
-                    @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <br />
-            <br />
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
-                    @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <br />
-            <br />
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.employeeEmail, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
-                    @Html.ValidationMessageFor(model => model.employeeEmail, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.timeStamp, new { htmlAttributes = new { @class = "form-control", placeholder = "Time Stamp" } })
+                    @Html.ValidationMessageFor(model => model.timeStamp, "", new { @class = "text-danger" })
                 </div>
             </div>
             <br />
             <br />
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Sign In" class="btn btn-default" />
                 </div>
             </div>
             <br />
-            <input type="button" value="Sign In" onclick="location.href='@Url.Action("", "")'" />
+            <input type="button" value="New" onclick="location.href='@Url.Action("Create", "userdatas")'" />
         </div>
     </div>
 }

@@ -42,5 +42,10 @@ namespace Bouldering.Controllers
 
             return View(employeedata);
         }
+
+        public ActionResult Employee_Authenticate ()
+        {
+            return View();
+        }
     }
 }
