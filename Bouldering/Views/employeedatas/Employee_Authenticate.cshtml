@@ -164,16 +164,16 @@
             <div class="form-group">
                 @*@Html.LabelFor(model => model.userID, htmlAttributes: new { @class = "control-label col-md-2" })*@
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.employeeID, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee ID" } })
-                    @Html.ValidationMessageFor(model => model.employeeID, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.userID, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee ID" } })
+                    @Html.ValidationMessageFor(model => model.userID, "", new { @class = "text-danger" })
                 </div>
             </div>
             <br />
             <br />
             <div class="form-group">
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.employeeEmail, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee Email" } })
-                    @Html.ValidationMessageFor(model => model.employeeEmail, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.userEmail, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee Email" } })
+                    @Html.ValidationMessageFor(model => model.userEmail, "", new { @class = "text-danger" })
                 </div>
             </div>
             <br />

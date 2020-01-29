@@ -12,11 +12,9 @@ namespace Bouldering.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class employeedata
+    public partial class employeedata : userdata
     {
-        public string employeeID { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string employeeEmail { get; set; }
+        public bool isEmployee { get; set; }
+
     }
 }

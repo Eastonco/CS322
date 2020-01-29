@@ -162,8 +162,8 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.employeeID, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee ID" } })
-                    @Html.ValidationMessageFor(model => model.employeeID, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.userID, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee ID" } })
+                    @Html.ValidationMessageFor(model => model.userID, "", new { @class = "text-danger" })
                 </div>
             </div>
             <br />
@@ -186,8 +186,8 @@
             <br />
             <div class="form-group">
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.employeeEmail, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
-                    @Html.ValidationMessageFor(model => model.employeeEmail, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.userEmail, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                    @Html.ValidationMessageFor(model => model.userEmail, "", new { @class = "text-danger" })
                 </div>
             </div>
             <br />
