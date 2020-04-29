@@ -1,3 +1,6 @@
+# Milestone 6
+Please look at the Files in the Branch, "Main_Project"
+
 # Bouldering Tracker
 CPTS 322 Project 
 
