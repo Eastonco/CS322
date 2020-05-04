@@ -1,0 +1,203 @@
+﻿@model Bouldering_Company.Models.userdata
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+@{
+    ViewBag.Title = "Create New Climber";
+}
+
+<style>
+    #navbar {
+        display: grid;
+        min-height: 100px;
+        grid-auto-flow: column;
+        background-color: #fcfcfc;
+        padding-right: 2%;
+        padding-left: 2%;
+    }
+
+    #logo {
+        display: grid;
+        justify-content: start;
+        align-content: center;
+        font-size: 30px;
+        font-weight: 700;
+        color: black;
+        text-transform: uppercase;
+    }
+
+    #links {
+        display: grid;
+        justify-content: right;
+        align-content: center;
+        grid-auto-flow: column;
+        grid-gap: 1.5em;
+    }
+
+        #links a {
+            text-decoration: none;
+            color: black;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+            #links a:hover {
+                color: #0474bc;
+            }
+
+
+    html {
+        background-image: url("https://cdn.pixabay.com/photo/2014/07/01/12/35/mountains-381231_1280.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+    }
+
+    #Title {
+        text-align: center;
+        font-size: 35px;
+        color: black;
+        text-transform: uppercase;
+    }
+
+    #btn1, #btn2 {
+        padding-right: 2%;
+        padding-top: 2%;
+        display: inline-block;
+    }
+
+    .form-horizontal {
+        background-color: white;
+        border-radius: 15px;
+        margin: 180px auto;
+        height: 550px;
+        width: 400px;
+        padding: 15px;
+    }
+
+    .container {
+        text-align: left;
+    }
+
+    input[type="text"] {
+        border: 0;
+        outline: 0;
+        width: 90%;
+        background: transparent;
+        border-bottom: 1px solid black;
+    }
+
+    input[type="submit"] {
+        height: 50px;
+        text-align: center;
+        font-size: 22px;
+        width: 150px;
+        border: none;
+        align-content: center;
+        background-color: white;
+        margin: 0 auto;
+        display: block;
+        cursor: pointer;
+        color: black;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    input[type='button'] {
+        height: 30px;
+        text-align: center;
+        font-size: 15px;
+        width: 120px;
+        border: none;
+        align-content: center;
+        background-color: white;
+        margin: 0 auto;
+        display: block;
+        cursor: pointer;
+        color: black;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+        color: #0474bc;
+    }
+
+    input[type="button"]:hover {
+        color: #0474bc;
+    }
+</style>
+
+<header>
+    <nav>
+        <div id="navbar">
+            <div id="logo" class="reverse">
+
+                <div class="logo">Bouldering Company</div>
+
+            </div>
+            <div id="links">
+                <a href="">Home</a>
+                <a href="@Url.Action("Climber_In", "Climber")">Climber</a>
+                <a href="@Url.Action("Employee_In", "Employee")">Employee</a>
+            </div>
+        </div>
+
+    </nav>
+</header>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="container">
+
+            <h2 id="Title">New Climber</h2>
+            <br />
+            <br />
+            <br />
+            <br />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })
+                    @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
+                    @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.userEmail, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                    @Html.ValidationMessageFor(model => model.userEmail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <br />
+            <input type="checkbox" id="Terms" name="Terms">
+            <label for="Terms" style="font-size:x-small">By checking this box you have read, and agreed to the <a href="~/Content/Safety_Waiver.pdf">Safety Waiver</a>.</label><br>
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+            <br />
+            <input type="button" value="Sign In" onclick="location.href = '@Url.Action("Climber_In", "Climber")'" />
+        </div>
+    </div>
+}
+
+<script>
+    window.onload = $("input.form-control:text").val("");
+</script>
